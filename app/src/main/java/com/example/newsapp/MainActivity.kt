@@ -8,6 +8,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,14 +21,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.fragment_splash)
-        Handler(Looper.myLooper()!!).postDelayed({
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(2500)
+            _binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(mBinding.root)
             bottom_nav_menu.setupWithNavController(
                 navController = nav_host_fragment.findNavController()
             )
-        }, 2000)
+        }
     }
 
     override fun onDestroy() {
