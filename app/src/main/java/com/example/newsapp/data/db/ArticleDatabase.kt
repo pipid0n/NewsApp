@@ -3,7 +3,6 @@ package com.example.newsapp.data.db
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.internal.synchronized
 
 abstract class ArticleDatabase: RoomDatabase() {
 
