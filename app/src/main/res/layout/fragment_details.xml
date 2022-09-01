@@ -1,14 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.details.DetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/app_name" />
+        android:layout_height="240dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/iv_icon_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginBottom="18dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_details_icon_favorite"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_favorites"
+                android:layout_marginBottom="18dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_icon_share"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_icon_share"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_share"
+                android:layout_marginBottom="18dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_article_details_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="17dp"
+        android:textSize="20sp"
+        android:textColor="@color/dark_gray"
+        android:textStyle="bold"
+        tools:text="Musk invited to UK Parlament to discuss $44B twitter buyout"
+        app:layout_constraintTop_toBottomOf="@id/cv_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_article_details_description_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginHorizontal="13dp"
+        android:textSize="16sp"
+        android:textColor="@color/dark_gray"
+        android:textStyle="bold"
+        android:text="@string/description"
+        app:layout_constraintTop_toBottomOf="@id/tv_article_details_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_article_details_description_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="13dp"
+        android:textSize="12sp"
+        android:textColor="@color/dark_gray"
+        android:lineHeight="19dp"
+        tools:text="The British parliament has invited Elon Musk to “discuss the future of Twitter” because we live in deeply wild times. If Musk agrees to speak to parliamentarians on the Digital, Culture, Media and Sport (DCMS) committee — even virtually — he will be going further than Facebook founder Mark Zuckerberg who (in)famously snubbed repeat calls to testify before it in the wake of the Cambridge Analytica data abuse scandal back in 2018."
+        app:layout_constraintTop_toBottomOf="@id/tv_article_details_description_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
+
+    <Button
+        android:id="@+id/btn_article_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/visit_site"
+        app:layout_constraintTop_toBottomOf="@id/tv_article_details_description_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
