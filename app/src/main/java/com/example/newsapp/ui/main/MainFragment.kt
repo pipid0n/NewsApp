@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.newsapp.R
-import com.example.newsapp.databinding.FragmentDetailsBinding
 import com.example.newsapp.databinding.FragmentMainBinding
 import com.example.newsapp.databinding.FragmentMainBinding.*
 import com.example.newsapp.ui.adapters.NewsAdapter
@@ -40,19 +38,19 @@ class MainFragment : Fragment() {
         viewModel.newsLiveData.observe(viewLifecycleOwner) { response ->
             when(response) {
                 is Resource.Success -> {
-                    pag_progress_bar.visibility = View.INVISIBLE
+                    pb_main.visibility = View.INVISIBLE
                     response.data?.let {
                         newsAdapter.differ.submitList(it.articles)
                     }
                 }
                 is Resource.Error -> {
-                    pag_progress_bar.visibility = View.INVISIBLE
+                    pb_main.visibility = View.INVISIBLE
                     response.data?.let{
                         Log.e("checkData", "MainFragment: Error${it}")
                     }
                 }
                 is Resource.Loading -> {
-                    pag_progress_bar.visibility = View.VISIBLE
+                    pb_main.visibility = View.VISIBLE
                 }
             }
         }
